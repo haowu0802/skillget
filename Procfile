@@ -1,1 +1,1 @@
-web: python manage.py runserver 80
+web: gunicorn {{ project_name }}.wsgi
