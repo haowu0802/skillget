@@ -1,1 +1,0 @@
-web: gunicorn skillget.wsgi
