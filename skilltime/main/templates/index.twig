@@ -4,15 +4,34 @@
   <title>Skilltime</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{{STATIC_URL}}css/hml.css">
+  <link rel="stylesheet" href="{{STATIC_URL}}css/skilltime.css">
   <script src="{{STATIC_URL}}js/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body>
 
-  Skilltime
+  <p>Skilltime</p>
 
+  <div class="stopwatch">
 
-  <script src="{{STATIC_URL}}js/hml.js"></script>
+    <div class="circle">
+      <span class="time" id="display">00:00:00</span>
+    </div>
+
+    <div class="controls">
+        <button class="buttonPlay">
+          <img id="playButton" src="{{STATIC_URL}}icons/play-button.svg" />
+          <img id="pauseButton" src="{{STATIC_URL}}icons/pause-button.svg" />
+        </button>
+
+        <button class="buttonReset">
+          <img id="resetButton" src="{{STATIC_URL}}icons/reset-button.svg" />
+        </button>
+    </div>
+
+  </div>
+
+  <script src="{{STATIC_URL}}js/skilltime.js"></script>
 </body>
 </html>
