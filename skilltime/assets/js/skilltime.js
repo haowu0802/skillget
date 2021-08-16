@@ -1,36 +1,38 @@
 
 function timeToString(time) {
-    var ss = Math.floor( time / (1000) );
-    var mm = Math.floor( ss / 60 );
-    var hh = Math.floor( mm / 60 );
+    time_sec = time / 1000;
+    var hours = Math.floor(time_sec / 3600);
+    var minutes = Math.floor(time_sec / 60);
+    var seconds = Math.floor(time_sec - minutes * 60);
 
-    var formattedHH = hh.toString().padStart(2, "0");
-    var formattedMM = mm.toString().padStart(2, "0");
-    var formattedSS = ss.toString().padStart(2, "0");
+    var formattedHH = hours.toString().padStart(2, "0");
+    var formattedMM = minutes.toString().padStart(2, "0");
+    var formattedSS = seconds.toString().padStart(2, "0");
 
     return `${formattedHH}:${formattedMM}:${formattedSS}`;
 }
 
-var startTime;
-var elapsedTime = 0;
+var MIN_45 = 45 * 60 * 1000;
+var timeRemain = MIN_45;
+
 
 function print(txt) {
     document.getElementById("display").innerHTML = txt;
 }
 
 function start() {
-    startTime = Date.now() - elapsedTime;
+    interval = 100;
     timerInterval = setInterval(function printTime() {
-      elapsedTime = Date.now() - startTime;
-      print(timeToString(elapsedTime));
-    }, 100);
+        timeRemain = timeRemain - interval;
+      print(timeToString(timeRemain));
+    }, interval);
     // showButton("PAUSE");
 }
 
 function reset() {
     clearInterval(timerInterval);
-    print("00:00:00");
-    elapsedTime = 0;
+    print("00:45:00");
+    timeRemain = MIN_45;
     // showButton("PLAY");
 }
 
