@@ -21,7 +21,7 @@ function print(txt) {
 }
 
 function start() {
-    interval = 100;
+    interval = 1000;
     timerInterval = setInterval(function printTime() {
         timeRemain = timeRemain - interval;
       print(timeToString(timeRemain));
